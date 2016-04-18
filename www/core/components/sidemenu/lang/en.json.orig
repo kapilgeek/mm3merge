@@ -1,0 +1,12 @@
+{
+    "appsettings": "App settings",
+    "help": "Help",
+<<<<<<< HEAD
+    "logout": "Change/Add site or user",
+=======
+    "changesite": "Change site",
+>>>>>>> master
+    "mycourses": "My courses",
+    "togglemenu": "Toggle menu",
+    "website": "Website"
+}
