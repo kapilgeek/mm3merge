@@ -21,42 +21,21 @@ angular.module('mm.core.course')
  * @ngdoc service
  * @name $mmCourseCoursesNavHandler
  */
-.factory('$mmCourseCoursesNavHandler', function() {
+.factory('$mmCourseCoursesNavHandler', function($mmCourse, $mmUtil) {
     return {
-
-        /**
-         * Check if handler is enabled.
-         *
-         * @return {Boolean} True if handler is enabled, false otherwise.
-         */
         isEnabled: function() {
             return true;
         },
-
-        /**
-         * Check if handler is enabled for this course.
-         *
-         * @param {Number} courseId   Course ID.
-         * @param {Object} accessData Type of access to the course: default, guest, ...
-         * @return {Boolean}          True if handler is enabled, false otherwise.
-         */
         isEnabledForCourse: function() {
             return true;
         },
-
-        /**
-         * Get the controller.
-         *
-         * @param {Number} courseId Course ID.
-         * @return {Object}         Controller.
-         */
         getController: function(courseId) {
             return function($scope, $state) {
                 $scope.icon = 'ion-briefcase';
                 $scope.title = 'mm.course.contents';
 
                 $scope.action = function(e, course) {
-                    $state.go('site.mm_course', {courseid: course.id});
+                    $state.go('site.mm_course', {course: course});
                     e.preventDefault();
                     e.stopPropagation();
                 };
